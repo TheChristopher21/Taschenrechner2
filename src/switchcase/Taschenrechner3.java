@@ -8,8 +8,8 @@ public class Taschenrechner3 {
 
         Scanner scanner = new Scanner(System.in);
 
-        int zahl1 = 0;
-        int ergebnis = 0;
+        double zahl1 = 0;
+        double ergebnis = 0;
         boolean ersteEingabe = true;
 
         while (true) {
@@ -17,6 +17,7 @@ public class Taschenrechner3 {
                 System.out.println("Bitte gib eine Zahl ein:");
                 zahl1 = scanner.nextInt();
                 ersteEingabe = false;
+                ergebnis += zahl1;
             }
 
             System.out.println("Wähle einen Operator aus (oder = zum Beenden):");
@@ -32,26 +33,28 @@ public class Taschenrechner3 {
 
             switch (operator) {
                 case "+":
-                    ergebnis = zahl1 + zahl2;
+                    ergebnis += zahl2;
                     break;
                 case "-":
-                    ergebnis = zahl1 - zahl2;
+                    ergebnis -= zahl2;
                     break;
                 case "*":
-                    ergebnis = zahl1 * zahl2;
+                    ergebnis *= zahl2;
                     break;
                 case "/":
-                    ergebnis = zahl1 / zahl2;
+                    ergebnis /= zahl2;
                     break;
                 case "w":
                     ergebnis = (int) Math.sqrt(zahl1);
+                    break;
+                case "P":
+                    ergebnis = Math.pow(zahl1, zahl2);
                     break;
                 default:
                     System.out.println("Ungültiger Operator");
                     return;
             }
 
-            zahl1 = ergebnis;
         }
 
         System.out.println("Die Anwendung wurde beendet.");
